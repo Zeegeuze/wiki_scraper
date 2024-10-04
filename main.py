@@ -28,7 +28,8 @@ print("All paragraphs collected")
 
 # 4. Save the leaders into a json file
 scrape.save(leaders_per_country)
-print("All saved")
+print("Json saved")
 
 # 5. Save file as csv file
-# still to be implemented
+scrape.save_as_csv(leaders_per_country)
+print("Csv saved")

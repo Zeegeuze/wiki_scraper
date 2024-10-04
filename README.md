@@ -19,6 +19,7 @@ Include in this file the first paragraph of the Wikipedia page of these leaders 
 ├── .gitignore
 ├── main.py
 ├── leaders_data.json
+├── leaders_data.csv
 ├── requirements.txt
 ├── wikipedia_scraper.ipynb
 └── README.md
@@ -34,11 +35,12 @@ Include in this file the first paragraph of the Wikipedia page of these leaders 
     python main.py
     ```
 
-3. The script reads the API, will extract the urls from the leaders, after which we'll scrape the first paragraph of every leading from Wikipedia. Later on it will be saved to an "leaders_data.json" file in your root directory.
+3. The script reads the API, will extract the urls from the leaders, after which we'll scrape the first paragraph of every leading from Wikipedia. Later on it will be saved to an "leaders_data.json" and a "leaders_date.csv" file in your root directory.
 
 ```python
 input = [API](https://country-leaders.onrender.com)
 output_filename = "leaders_data.json"
+outpit_filename = "leaders_data.csv"
 
 ```
 ## ⏱️ Timeline
