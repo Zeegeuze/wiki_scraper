@@ -1,4 +1,5 @@
 import requests
+import csv
 import json
 from bs4 import BeautifulSoup
 
@@ -99,5 +100,5 @@ class Scraping():
         json_object = json.dumps(leaders_per_country, indent=4)
 
         # Writing to sample.json
-        with open("leaders.json", "w") as outfile:
+        with open("leaders_data.json", "w") as outfile:
             outfile.write(json_object)

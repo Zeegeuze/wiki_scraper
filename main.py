@@ -1,5 +1,4 @@
-from scraping import *
-import requests
+from src.scraper import *
 
 # Part 1: API
 # 1. Identify the root of the API
@@ -30,3 +29,6 @@ print("All paragraphs collected")
 # 4. Save the leaders into a json file
 scrape.save(leaders_per_country)
 print("All saved")
+
+# 5. Save file as csv file
+# still to be implemented
