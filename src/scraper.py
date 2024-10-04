@@ -1,6 +1,8 @@
 import requests
+import csv
 import json
 from bs4 import BeautifulSoup
+import ipdb
 
 class Scraping():
     def __init__(self):
@@ -81,6 +83,7 @@ class Scraping():
         s = requests.Session()
 
         print_index = 1
+
         for leaders_country in leaders:
             print(f"Country {print_index} of {len(leaders)} starting")
             print_index += 1
@@ -92,6 +95,7 @@ class Scraping():
                 # get first paragraphs
                 parag = self.get_wiki_info(s, leader['wikipedia_url'])
                 first_paragraphs[parag[0]] = parag[1]
+
         return first_paragraphs
 
     def save(self, leaders_per_country):
@@ -99,5 +103,15 @@ class Scraping():
         json_object = json.dumps(leaders_per_country, indent=4)
 
         # Writing to sample.json
-        with open("leaders.json", "w") as outfile:
+        with open("leaders_data.json", "w") as outfile:
             outfile.write(json_object)
+
+
+
+    def save_as_csv(self, leaders_per_country):
+        x = [{'Name':key, "Paragraph":value} for key, value in leaders_per_country.items()]
+
+        with open('leaders_data.csv', 'w') as csvfile:
+            csvwriter = csv.DictWriter(csvfile, fieldnames = ["Name", "Paragraph"])
+            csvwriter.writeheader()
+            csvwriter.writerows(x)
